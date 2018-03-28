@@ -23,7 +23,6 @@ def splash(splash_file):
     lines = [line.rstrip('\n') for line in open(str(splash_file))]
     for line in lines:
         print(line)
-    print("Press Enter to begin En Garde!")
     wait = input()
 
 def set_game_length():
