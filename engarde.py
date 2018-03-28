@@ -134,6 +134,14 @@ def discard(card, discards):
     row_index = card.value - 1
     discards[row_index].append("{+}")
 
+def discard_and_draw(card, discards, player, deck):
+    discard(card, discards)
+    try:
+        player.hand.append(deck.pop())
+    except IndexError:
+        print()
+
+
 def select_movement_card(player):
     cardFound = False
     m_card = None
@@ -172,21 +180,13 @@ def select_action(player, opponent, card, piste, discards, deck):
         elif(action == 'A' and can_advance(piste, card)):
             player.advance(card.value)
             piste.update()
-            discard(card, discards)
-            try:
-                player.hand.append(deck.pop())
-            except IndexError:
-                print()
+            discard_and_draw(card, discards, player, deck)
             actionSelected = True
             return True
         elif(action == 'R' and can_retreat(player, card)):
             player.retreat(card.value)
             piste.update()
-            discard(card, discards)
-            try:
-                player.hand.append(deck.pop())
-            except IndexError:
-                print()
+            discard_and_draw(card, discards, player, deck)
             actionSelected = True
             return True
         elif(action == 'E'):
@@ -219,33 +219,21 @@ def computerTurn(player, opponent, piste, discards, deck):
             player.advance(card.value)
             piste.update()
             player.hand.remove(card)
-            discard(card, discards)
-            try:
-                player.hand.append(deck.pop())
-            except IndexError:
-                print()
+            discard_and_draw(card, discards, player, deck)
             return True
     for card in player.hand:
         if(can_retreat(player, card)):
             player.retreat(card.value)
             piste.update()
             player.hand.remove(card)
-            discard(card, discards)
-            try:
-                player.hand.append(deck.pop())
-            except IndexError:
-                print()
+            discard_and_draw(card, discards, player, deck)
             return True
     for card in player.hand:
         if(can_advance(piste, card)):
             player.advance(card.value)
             piste.update()
             player.hand.remove(card)
-            discard(card, discards)
-            try:
-                player.hand.append(deck.pop())
-            except IndexError:
-                print()
+            discard_and_draw(card, discards, player, deck)
             return True
 
 def personTurn(player, opponent, piste, discards, deck):
