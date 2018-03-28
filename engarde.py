@@ -84,8 +84,10 @@ def display_hits(player1, player2):
 def display_board(player1, player2, piste):
     print(cls)
     display_hits(player1,player2)
-    print("Cards Remaining: " + str(len(deck)))
+    print("\033[1;30m"+"Cards Remaining: " + str(len(deck))+ "\033[0;37m")
+    print()
     print(piste)
+    print("\n")
 
 def show(deck):
     for card in deck:
@@ -100,7 +102,7 @@ def show_discards(discards):
         print(d_row)
 
 def show_hand(player):
-    print("Your hand contains: ")
+    print("\033[1;37m"+"Your hand contains: "+"\033[0;37m" )
     player.show_hand()
 
 def init_deal(deck, p1, p2):
@@ -278,8 +280,8 @@ def lastAttack(player, computer, piste, deck):
     return True
 
 
-player1 = player.Player("P")
-player2 = player.Player("C")
+player1 = player.Player("\033[1;36m"+"P")
+player2 = player.Player("\033[1;36m"+"C")
 
 piste = piste.Piste(player1, player2)
 
@@ -302,8 +304,8 @@ while(fenceOn):
         deck = init_deck()
         discards = init_discards()
         shuffle(deck)
-        player1.token = "P"
-        player2.token = "C"
+        player1.token = "\033[1;36m"+"P"
+        player2.token = "\033[1;36m"+"C"
         init_deal(deck, player1, player2)
         piste.reset(player1, player2)
         print(cls)

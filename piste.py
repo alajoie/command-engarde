@@ -26,8 +26,11 @@ class Piste:
 
     def __str__(self):
         display = ""
-        for space in self.spaces:
-           display += "["+str(space)+"\033[37m"+"]"
+        for index, space in enumerate(self.spaces):
+            if(index == 11):
+                display += "\033[1;33m" + "[" + str(space) + "\033[1;33m" + "]"
+            else:    
+                display += "\033[0;37m" + "[" + str(space) + "\033[0;37m" + "]"
         display += "\n"
         display += "Range: " + str(self.range)
         return display
