@@ -1,6 +1,8 @@
 # command-engarde
 a command line implementation of the tabletop game - engarde
 
+Intended to run using Python 3.x or greater
+
 This is a simple one player version of the tabletop game EnGarde origonally created by Reiner Knizia.
 
 The first version simply recreates the BASIC version of this game.
