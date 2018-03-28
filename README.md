@@ -7,7 +7,7 @@ This is a simple one player version of the tabletop game EnGarde originally crea
 
 The first version simply recreates the BASIC version of this game.
 
-The infamous duelist, Comte Puter, has been terrorizing everyone who daresto pick up a sword.
+The infamous duelist, Comte Puter, has been terrorizing everyone who dares to pick up a sword.
 Can you help bring a stop to his inhuman assaults?
 
 BASIC RULES
@@ -28,7 +28,7 @@ the deck, and the player's turn ends.
 It is then the Comte's turn... 
 
 The point continues until one of the players hits the other or until the deckis exhausted. In the case of the latter,
-the point is scored against the fencer furthest from the center of the piste.
+the point is scored against the fencer furthest from the center of the piste. (space 12)
 
 The bout continues in this manner until one fencer or the other has received the agreed upon number of hits
 (Hits are scored AGAINST each fencer... just like they were before fencing became a safe olympic sport)
