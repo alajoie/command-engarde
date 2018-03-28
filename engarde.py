@@ -130,6 +130,13 @@ def show_valid_moves(player, card, piste):
     display += "or r[E]place the card to start again."
     return display
 
+def move_piece_on_piste(action, player, card, piste):
+    if(action == 'A'):
+        player.advance(card.value)
+    elif(action == 'R'):
+        player.retreat(card.value)
+    piste.update()
+
 def discard(card, discards):
     row_index = card.value - 1
     discards[row_index].append("{+}")
@@ -178,14 +185,12 @@ def select_action(player, opponent, card, piste, discards, deck):
             actionSelected = True
             return True
         elif(action == 'A' and can_advance(piste, card)):
-            player.advance(card.value)
-            piste.update()
+            move_piece_on_piste(action, player, card, piste)
             discard_and_draw(card, discards, player, deck)
             actionSelected = True
             return True
         elif(action == 'R' and can_retreat(player, card)):
-            player.retreat(card.value)
-            piste.update()
+            move_piece_on_piste(action, player, card, piste)
             discard_and_draw(card, discards, player, deck)
             actionSelected = True
             return True
@@ -216,23 +221,20 @@ def computerTurn(player, opponent, piste, discards, deck):
             return False
     for card in player.hand:
         if(can_advance(piste, card) and (piste.range - card.value) > 5):
-            player.advance(card.value)
-            piste.update()
             player.hand.remove(card)
+            move_piece_on_piste('A', player, card, piste)
             discard_and_draw(card, discards, player, deck)
             return True
     for card in player.hand:
         if(can_retreat(player, card)):
-            player.retreat(card.value)
-            piste.update()
             player.hand.remove(card)
+            move_piece_on_piste('R', player, card, piste)
             discard_and_draw(card, discards, player, deck)
             return True
     for card in player.hand:
         if(can_advance(piste, card)):
-            player.advance(card.value)
-            piste.update()
             player.hand.remove(card)
+            move_piece_on_piste('A', player, card, piste)
             discard_and_draw(card, discards, player, deck)
             return True
 
