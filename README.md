@@ -18,7 +18,7 @@ Each fencer starts at one end of the piste.
 Each fencer is dealt five cards ranging in values from 1 to 5.
 
 At each turn, the player chooses which card strength to play.
-They are then presented movement choices based upon their position on the piste, the magnitudeofthe card they selected,
+They are then presented movement choices based upon their position on the piste, the magnitude of the card they selected,
 and the distance between the fencers. Options may include, Retreat, Advance, Lunge. The player may alternately choose
 to Replace the card back into his hand and select a different card, starting the process over.
 
